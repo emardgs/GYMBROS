@@ -130,18 +130,15 @@ a {
   border: var(--epaisseur-bordure) solid var(--couleur-accent);
   border-radius: var(--rayon-carte);
 
-  /* Fond gris affiché si l'image ne se charge pas */
-  background-color: var(--couleur-surface);
 }
 
-/* Photo de la carte (balise <img> dans le HTML) */
 .carte-seance-photo {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scaleX(-1); /* effet miroir gauche-droite */
+  transform: scaleX(-1); 
   z-index: 0;
 }
 
