@@ -4,7 +4,7 @@
   /* Couleurs */
   --couleur-fond: #0a0a0a;
   --couleur-surface: #141414;
-  --couleur-accent: #c5dc5b;
+  --couleur-accent: #98f625;
   --couleur-texte: #ffffff;
   --couleur-texte-secondaire: #9a9a9a;
   --couleur-texte-sur-accent: #0a0a0a;
@@ -46,6 +46,7 @@
 }
 
 /* BASE */
+
 * {
   margin: 0;
   padding: 0;
@@ -66,6 +67,7 @@ a {
 }
 
 /* ÉCRAN */
+
 .ecran {
   width: 100%;
   max-width: var(--largeur-ecran);
@@ -82,7 +84,8 @@ a {
   padding-bottom: calc(var(--hauteur-tabbar) + var(--espace-l));
 }
 
-/* HEADER */
+/* EN-TÊTE */
+
 .header {
   display: flex;
   flex-direction: column;
@@ -101,6 +104,7 @@ a {
 }
 
 /* SECTIONS */
+
 .section {
   display: flex;
   flex-direction: column;
@@ -113,6 +117,7 @@ a {
 }
 
 /* CARTE SÉANCE DU JOUR */
+
 .carte-seance {
   position: relative;
   display: flex;
@@ -124,29 +129,51 @@ a {
   overflow: hidden;
   border: var(--epaisseur-bordure) solid var(--couleur-accent);
   border-radius: var(--rayon-carte);
+
+  /* Fond gris affiché si l'image ne se charge pas */
+  background-color: var(--couleur-surface);
 }
 
-/* Photo en fond, inversée en miroir */
-.carte-seance::before {
-  content: "";
+/* Photo de la carte (balise <img> dans le HTML) */
+.carte-seance-photo {
   position: absolute;
   inset: 0;
-  background-image: url("IMG/elevationlatéral.jpg");
-  background-size: cover;
-  background-position: center;
-  transform: scaleX(-1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* effet miroir gauche-droite */
   z-index: 0;
 }
 
-/* Le contenu reste au-dessus de l'image */
-.carte-seance > * {
+.carte-seance-texte,
+.carte-seance .bouton {
   position: relative;
   z-index: 1;
 }
 
-/* =========================================================
-   BOUTON
-   ========================================================= */
+.carte-seance-texte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-xs);
+}
+
+.label-seance {
+  font-size: var(--taille-corps);
+  font-weight: var(--graisse-normale);
+}
+
+.titre-seance {
+  font-size: var(--taille-titre-seance);
+  font-weight: var(--graisse-tres-grasse);
+  line-height: 1.1;
+}
+
+.duree-seance {
+  font-size: var(--taille-corps);
+}
+
+/* BOUTON */
+
 .bouton {
   display: inline-block;
   padding: 14px var(--espace-m);
@@ -157,9 +184,8 @@ a {
   border-radius: var(--rayon-bouton);
 }
 
-/* =========================================================
-   CARTE + LIGNES (progression et classement)
-   ========================================================= */
+/* CARTE + LIGNES (progression et classement) */
+
 .carte {
   display: flex;
   flex-direction: column;
@@ -207,9 +233,8 @@ a {
   justify-content: flex-start;
 }
 
-/* =========================================================
-   TABBAR
-   ========================================================= */
+/* TABBAR */
+
 .tabbar {
   position: fixed;
   bottom: 0;
