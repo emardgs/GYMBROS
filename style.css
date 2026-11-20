@@ -1,0 +1,259 @@
+/* VARIABLES */
+
+:root {
+  /* Couleurs */
+  --couleur-fond: #0a0a0a;
+  --couleur-surface: #141414;
+  --couleur-accent: #c5dc5b;
+  --couleur-texte: #ffffff;
+  --couleur-texte-secondaire: #9a9a9a;
+  --couleur-texte-sur-accent: #0a0a0a;
+  --couleur-separateur: rgba(197, 220, 91, 0.35);
+
+  /* Typographie */
+  --police: "Inter", Arial, sans-serif;
+
+  --taille-petit: 12px;
+  --taille-corps: 16px;
+  --taille-titre-section: 24px;
+  --taille-titre-seance: 32px;
+  --taille-titre-page: 36px;
+  --taille-valeur: 32px;
+
+  --graisse-normale: 400;
+  --graisse-moyenne: 500;
+  --graisse-semi-grasse: 600;
+  --graisse-grasse: 700;
+  --graisse-tres-grasse: 800;
+
+  /* Espacements */
+  --espace-xs: 4px;
+  --espace-s: 8px;
+  --espace-m: 16px;
+  --espace-l: 24px;
+  --espace-xl: 32px;
+
+  /* Bordures et arrondis */
+  --epaisseur-bordure: 2px;
+  --rayon-carte: 28px;
+  --rayon-bouton: 16px;
+  --rayon-icone: 8px;
+
+  /* Dimensions */
+  --largeur-ecran: 390px;
+  --hauteur-tabbar: 84px;
+  --taille-icone-tabbar: 28px;
+}
+
+/* BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--police);
+  font-size: var(--taille-corps);
+  font-weight: var(--graisse-normale);
+  color: var(--couleur-texte);
+  background-color: var(--couleur-fond);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ÉCRAN */
+.ecran {
+  width: 100%;
+  max-width: var(--largeur-ecran);
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: var(--couleur-fond);
+}
+
+.contenu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-l);
+  padding: var(--espace-xl) var(--espace-m);
+  padding-bottom: calc(var(--hauteur-tabbar) + var(--espace-l));
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-xs);
+}
+
+.titre-page {
+  font-size: var(--taille-titre-page);
+  font-weight: var(--graisse-tres-grasse);
+  line-height: 1.1;
+}
+
+.sous-titre {
+  font-size: var(--taille-corps);
+  font-weight: var(--graisse-normale);
+}
+
+/* SECTIONS */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-m);
+}
+
+.titre-section {
+  font-size: var(--taille-titre-section);
+  font-weight: var(--graisse-grasse);
+}
+
+/* CARTE SÉANCE DU JOUR */
+.carte-seance {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espace-m);
+  min-height: 220px;
+  padding: var(--espace-m);
+  overflow: hidden;
+  border: var(--epaisseur-bordure) solid var(--couleur-accent);
+  border-radius: var(--rayon-carte);
+}
+
+/* Photo en fond, inversée en miroir */
+.carte-seance::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("IMG/elevationlatéral.jpg");
+  background-size: cover;
+  background-position: center;
+  transform: scaleX(-1);
+  z-index: 0;
+}
+
+/* Le contenu reste au-dessus de l'image */
+.carte-seance > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   BOUTON
+   ========================================================= */
+.bouton {
+  display: inline-block;
+  padding: 14px var(--espace-m);
+  font-size: var(--taille-corps);
+  font-weight: var(--graisse-grasse);
+  color: var(--couleur-texte-sur-accent);
+  background-color: var(--couleur-accent);
+  border-radius: var(--rayon-bouton);
+}
+
+/* =========================================================
+   CARTE + LIGNES (progression et classement)
+   ========================================================= */
+.carte {
+  display: flex;
+  flex-direction: column;
+  padding: var(--espace-s) var(--espace-m);
+  border: var(--epaisseur-bordure) solid var(--couleur-accent);
+  border-radius: var(--rayon-carte);
+}
+
+.ligne {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espace-m);
+  padding: var(--espace-m) 0;
+  border-bottom: 1px solid var(--couleur-separateur);
+}
+
+.ligne:last-child {
+  border-bottom: none;
+}
+
+.ligne-texte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-xs);
+}
+
+.ligne-titre {
+  font-size: 20px;
+  font-weight: var(--graisse-semi-grasse);
+}
+
+.ligne-detail {
+  font-size: var(--taille-corps);
+  color: var(--couleur-texte-secondaire);
+}
+
+.ligne-valeur {
+  font-size: var(--taille-valeur);
+  font-weight: var(--graisse-tres-grasse);
+  color: var(--couleur-accent);
+}
+
+.ligne-classement {
+  justify-content: flex-start;
+}
+
+/* =========================================================
+   TABBAR
+   ========================================================= */
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--largeur-ecran);
+  height: var(--hauteur-tabbar);
+  padding: var(--espace-s) var(--espace-m);
+  background-color: var(--couleur-surface);
+}
+
+.tabbar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espace-xs);
+  flex: 1;
+  color: var(--couleur-texte-secondaire);
+}
+
+.tabbar-icone {
+  width: var(--taille-icone-tabbar);
+  height: var(--taille-icone-tabbar);
+  background-color: #262626;
+  border-radius: var(--rayon-icone);
+}
+
+.tabbar-texte {
+  font-size: 14px;
+  font-weight: var(--graisse-normale);
+}
+
+/* Onglet actif */
+.tabbar-item.actif {
+  color: var(--couleur-accent);
+}
+
+.tabbar-item.actif .tabbar-icone {
+  background-color: var(--couleur-accent);
+}
+
+.tabbar-item.actif .tabbar-texte {
+  font-weight: var(--graisse-semi-grasse);
+}

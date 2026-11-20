@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accueil</title>
+
+  <!-- Police Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="ecran">
+
+    <main class="contenu">
+
+      <!-- En-tête -->
+      <header class="header">
+        <h1 class="titre-page">Salut Ema !</h1>
+        <p class="sous-titre">Prête à te dépasser ?</p>
+      </header>
+
+      <!-- Séance du jour -->
+      <section class="carte-seance">
+        <!--
+          PHOTO : dépose ton image dans le dossier images/ puis
+          décommente la ligne ci-dessous (ou utilise background-image dans le CSS).
+        -->
+        <!-- <img class="carte-seance-photo" src="images/seance.jpg" alt=""> -->
+
+        <div class="carte-seance-texte">
+          <p class="label-seance">Séance du jour</p>
+          <h2 class="titre-seance">Bras &amp; épaules</h2>
+          <p class="duree-seance">1h10</p>
+        </div>
+        <a class="bouton" href="#">Commencer maintenant</a>
+      </section>
+
+      <!-- Progression -->
+      <section class="section">
+        <h2 class="titre-section">Ta progression</h2>
+        <div class="carte">
+          <div class="ligne">
+            <div class="ligne-texte">
+              <p class="ligne-titre">Bench</p>
+              <p class="ligne-detail">12 nov. 2026</p>
+            </div>
+            <p class="ligne-valeur">45 kg</p>
+          </div>
+          <div class="ligne">
+            <div class="ligne-texte">
+              <p class="ligne-titre">Squats</p>
+              <p class="ligne-detail">10 nov. 2026</p>
+            </div>
+            <p class="ligne-valeur">80 kg</p>
+          </div>
+          <div class="ligne">
+            <div class="ligne-texte">
+              <p class="ligne-titre">Tractions</p>
+              <p class="ligne-detail">5 oct. 2026</p>
+            </div>
+            <p class="ligne-valeur">+5 kg</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Classement du groupe -->
+      <section class="section">
+        <h2 class="titre-section">Classements de ton groupe</h2>
+        <div class="carte">
+          <div class="ligne ligne-classement">
+            <p class="ligne-titre">1. Killian</p>
+          </div>
+          <div class="ligne ligne-classement">
+            <p class="ligne-titre">2. Yannou</p>
+          </div>
+          <div class="ligne ligne-classement">
+            <p class="ligne-titre">3. Ema</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Barre de navigation -->
+    <nav class="tabbar">
+      <a class="tabbar-item actif" href="index.html">
+        <span class="tabbar-icone"></span>
+        <span class="tabbar-texte">Accueil</span>
+      </a>
+      <a class="tabbar-item" href="#">
+        <span class="tabbar-icone"></span>
+        <span class="tabbar-texte">Exercices</span>
+      </a>
+      <a class="tabbar-item" href="#">
+        <span class="tabbar-icone"></span>
+        <span class="tabbar-texte">Progrès</span>
+      </a>
+      <a class="tabbar-item" href="#">
+        <span class="tabbar-icone"></span>
+        <span class="tabbar-texte">Amis</span>
+      </a>
+      <a class="tabbar-item" href="#">
+        <span class="tabbar-icone"></span>
+        <span class="tabbar-texte">Profil</span>
+      </a>
+    </nav>
+
+  </div>
+
+</body>
+</html>
